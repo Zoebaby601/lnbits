@@ -114,6 +114,7 @@ class AccountFilters(FilterModel):
     ]
 
     id: str
+    transaction_count: Optional[int] = None
     username: Optional[str] = None
     email: Optional[str] = None
 
