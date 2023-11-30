@@ -224,5 +224,6 @@ window.localisation.en = {
   auth_provider: 'Auth Provider',
   my_account: 'My Account',
   back: 'Back',
-  logout: 'Logout'
+  logout: 'Logout',
+  hide_empty_wallets: 'Hide empty wallets'
 }
