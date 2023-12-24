@@ -16,16 +16,12 @@ from .base import (
 
 class CashuWallet(Wallet):
     def __init__(self):
-        self.statuses = {
-            "paid": True,
-            "failed": False,
-            "pending": None,
-        }
+        if not settings.cashu_wallet_endpoint:
+            raise ValueError(
+                "cannot initialize CashuWallet: missing cashu_wallet_endpoint"
+            )
+
         endpoint = settings.cashu_wallet_endpoint
-
-        if not endpoint:
-            raise Exception("cannot initialize lndrest: no endpoint")
-
         endpoint = endpoint[:-1] if endpoint.endswith("/") else endpoint
         endpoint = (
             f"https://{endpoint}" if not endpoint.startswith("http") else endpoint
